@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const dbConnect = require('./utils/dbConnect');
-const category1Routes = require('./routes/v1/category1.route');
+const userRoutes = require('./routes/v1/user.route');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -13,10 +13,10 @@ app.use(express.json());
 // database connection 
 dbConnect();
 
-app.use("/api/v1/category1", category1Routes);
+app.use("/api/v1/user", userRoutes);
 
 app.get('/', (req, res) => {
-    res.send('Hello from boiler plate')
+    res.send('Hello from random user api')
 })
 
 //in case there is no route or any problem
