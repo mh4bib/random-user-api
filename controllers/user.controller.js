@@ -14,6 +14,8 @@ module.exports.getAllUsers = (req, res) => {
     res.send(users);
 };
 
-module.exports.getItemDetails = (req, res) => {
-    res.send("Here is the detail of the selected item");
+module.exports.getRandomUsers = (req, res) => {
+    const x = users.length;
+    const randomIndex = Math.floor(Math.random() * x)
+    res.send(users[randomIndex]);
 };

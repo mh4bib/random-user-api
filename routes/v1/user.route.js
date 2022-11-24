@@ -16,8 +16,19 @@ router
      */
     .get(userControllers.getAllUsers)
 
+router
+    .route("/random")
 
-    router
-    .route("/:id")
-    .get(userControllers.getItemDetails);
+    /**
+     * @api {get}/user/all
+     * @apiDescription get all users
+     * @apiPermission users
+     * 
+     * @apiSuccess {object[]} all the of the users
+     */
+    .get(userControllers.getRandomUsers)
+
+    // router
+    // .route("/:id")
+    // .get(userControllers.getItemDetails);
 module.exports = router;
