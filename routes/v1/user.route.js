@@ -40,6 +40,18 @@ router
      */
     .post(userControllers.postAUsers)
 
+router
+    .route("/update/:id")
+
+    /**
+     * @api {post}/user/save
+     * @apiDescription save a new user
+     * @apiPermission users
+     * 
+     * @apiSuccess message in console "new user added"
+     */
+    .patch(userControllers.patchAUsers)
+
 
 
 

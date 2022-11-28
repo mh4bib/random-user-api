@@ -35,3 +35,20 @@ module.exports.postAUsers = (req, res) => {
     })
     res.send("user successfully added");
 };
+
+module.exports.patchAUsers = (req, res)=>{
+    const newId = req.params.id;
+    const {id, gender, name, contact, address, picture} = req.body;
+    const user = users.find(User => User._id==newId);
+    if(user){
+    if (id) user._id = id;
+    if (gender) user.gender = gender;
+    if (name) user.name = name;
+    if (contact) user.contact = contact;
+    if (address) user.address = address;
+    if (picture) user.picture = picture;
+    res.send(user);
+    }
+    else
+        res.send("id does not matched");
+};
