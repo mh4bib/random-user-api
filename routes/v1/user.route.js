@@ -50,7 +50,19 @@ router
      * 
      * @apiSuccess message in console "new user added"
      */
-    .patch(userControllers.patchAUsers)
+    .patch(userControllers.patchAUser)
+
+router
+    .route("/delete/:id")
+
+    /**
+     * @api {post}/user/save
+     * @apiDescription save a new user
+     * @apiPermission users
+     * 
+     * @apiSuccess message in console "new user added"
+     */
+    .delete(userControllers.deleteAUser)
 
 
 
