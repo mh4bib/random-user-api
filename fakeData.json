@@ -170,17 +170,9 @@
     {
         "_id": "22",
         "gender": "male",
-        "name": "Habib",
+        "name": "Habibur Rahman",
         "contact": "(433) 400-6433",
-        "address": "Kamala para, Ghatail, Tangail, Dhaka",
-        "picture": "http://placehold.it/32x32"
-    },
-    {
-        "_id": "23",
-        "gender": "male",
-        "name": "Masum",
-        "contact": "017734568",
-        "address": "andorkilla, chittagong",
+        "address": "Sunam Ganj, Sylhet",
         "picture": "http://placehold.it/32x32"
     }
 ]

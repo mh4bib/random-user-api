@@ -53,6 +53,18 @@ router
     .patch(userControllers.patchAUser)
 
 router
+    .route("/bulk-update")
+
+    /**
+     * @api {post}/user/save
+     * @apiDescription save a new user
+     * @apiPermission users
+     * 
+     * @apiSuccess message in console "new user added"
+     */
+    .patch(userControllers.bulkUpdate)
+
+router
     .route("/delete/:id")
 
     /**
