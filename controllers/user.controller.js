@@ -23,20 +23,24 @@ module.exports.postAUsers = (req, res) => {
 };
 
 module.exports.patchAUser = (req, res) => {
-    const newId = req.params.id;
-    const { id, gender, name, contact, address, picture } = req.body;
-    const user = users.find(User => User._id == newId);
-    if (user) {
-        if (id) user._id = id;
-        if (gender) user.gender = gender;
-        if (name) user.name = name;
-        if (contact) user.contact = contact;
-        if (address) user.address = address;
-        if (picture) user.picture = picture;
-        res.send("user successfully updated");
-    }
-    else
-        res.send("id does not matched");
+    const users = getUserData();
+    const id = req.params.id;
+    const { gender, name, contact, address, picture } = req.body;
+
+    let updatedUsers = users.map(user =>
+        user._id === id
+          ? { ...user,
+             ...(gender && {gender: gender}),
+             ...(name&&{name: name}), 
+             ...(contact&&{contact:contact}), 
+             ...(address&&{address:address}), 
+             ...(picture&&{picture:picture}) 
+            }
+          : user
+      );
+    updatedUsers = JSON.stringify(updatedUsers);
+    updateUserData(updatedUsers);
+    res.send("user successfully updated");
 };
 
 module.exports.deleteAUser = (req, res) => {
